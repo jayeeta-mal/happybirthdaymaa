@@ -1,0 +1,1314 @@
+/* ===== RESET & BASE STYLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* ISKON Light Divine Color Palette */
+    --primary-gold: #ffd700;
+    --secondary-orange: #ff8c00;
+    --accent-saffron: #ff6b35;
+    --divine-light: #fff8f0;
+    --divine-lighter: #fffaf5;
+    --divine-white: #ffffff;
+    --sacred-gold: #ffd700;
+    --lotus-pink: #ff69b4;
+    --krishna-blue: #4169e1;
+    --peacock-green: #228b22;
+    --radha-pink: #ffb6c1;
+    --sita-yellow: #fffacd;
+    --mahadev-orange: #ffa500;
+    
+    /* Typography */
+    --font-primary: 'Playfair Display', serif;
+    --font-secondary: 'Poppins', sans-serif;
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 8rem;
+    
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    
+    /* Shadows */
+    --shadow-glow: 0 0 20px rgba(255, 215, 0, 0.3);
+    --shadow-divine: 0 8px 32px rgba(255, 215, 0, 0.2);
+    --shadow-sacred: 0 0 10px rgba(255, 107, 53, 0.3);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-secondary);
+    background: linear-gradient(135deg, var(--divine-lighter) 0%, var(--divine-light) 50%, #fff5e6 100%);
+    color: #2c1810;
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* ===== DIVINE BACKGROUND ===== */
+.divine-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.sacred-geometry {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, var(--primary-gold), transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(255, 215, 0, 0.6), transparent),
+        radial-gradient(1px 1px at 90px 40px, var(--sacred-gold), transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(255, 215, 0, 0.4), transparent),
+        radial-gradient(2px 2px at 160px 30px, var(--secondary-orange), transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    animation: sacred-twinkle 4s ease-in-out infinite;
+    opacity: 0.3;
+}
+
+.lotus-petals {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(ellipse at 20% 50%, rgba(255, 105, 180, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(255, 140, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 40% 80%, rgba(65, 105, 225, 0.1) 0%, transparent 50%);
+    animation: lotus-drift 20s ease-in-out infinite;
+}
+
+.divine-light {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.divine-light::before,
+.divine-light::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: linear-gradient(45deg, var(--primary-gold), transparent);
+    border-radius: 50%;
+    animation: divine-light-trail 4s linear infinite;
+}
+
+.divine-light::before {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.divine-light::after {
+    top: 60%;
+    left: 80%;
+    animation-delay: 2s;
+}
+
+.om-symbols {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+}
+
+.om-symbols::before {
+    content: 'ॐ';
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    font-size: 2rem;
+    color: var(--primary-gold);
+    animation: om-float 8s ease-in-out infinite;
+}
+
+.om-symbols::after {
+    content: 'ॐ';
+    position: absolute;
+    bottom: 20%;
+    right: 10%;
+    font-size: 1.5rem;
+    color: var(--lotus-pink);
+    animation: om-float 6s ease-in-out infinite reverse;
+}
+
+/* ===== DIVINE FLOATING ELEMENTS ===== */
+.divine-floating {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.divine-element {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: divine-float 8s ease-in-out infinite;
+}
+
+.divine-element.krishna {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="%23ffd700" opacity="0.8"/><text x="50" y="60" text-anchor="middle" font-size="40" fill="%234169e1">🕉️</text></svg>');
+    top: 15%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.divine-element.radha {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="%23ffb6c1" opacity="0.8"/><text x="50" y="60" text-anchor="middle" font-size="40" fill="%23ff69b4">🌸</text></svg>');
+    top: 25%;
+    right: 15%;
+    animation-delay: 2s;
+}
+
+.divine-element.gopal {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="%23ffd700" opacity="0.8"/><text x="50" y="60" text-anchor="middle" font-size="40" fill="%23ff8c00">👶</text></svg>');
+    bottom: 20%;
+    left: 20%;
+    animation-delay: 4s;
+}
+
+.divine-element.kanha {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="%23ffd700" opacity="0.8"/><text x="50" y="60" text-anchor="middle" font-size="40" fill="%23ff6b35">🎭</text></svg>');
+    bottom: 30%;
+    right: 25%;
+    animation-delay: 6s;
+}
+
+.divine-element.ram-sita {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="%23fffacd" opacity="0.8"/><text x="50" y="60" text-anchor="middle" font-size="40" fill="%23ffa500">👑</text></svg>');
+    top: 60%;
+    left: 50%;
+    animation-delay: 1s;
+}
+
+.divine-element.mahadev {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="%23ffa500" opacity="0.8"/><text x="50" y="60" text-anchor="middle" font-size="40" fill="%23ff4500">🧘</text></svg>');
+    top: 40%;
+    right: 5%;
+    animation-delay: 3s;
+}
+
+/* ===== NAVIGATION ===== */
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(255, 248, 240, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.nav-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo-text {
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    font-weight: 900;
+    background: linear-gradient(45deg, var(--primary-gold), var(--accent-saffron));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.logo-subtitle {
+    font-size: 0.7rem;
+    color: var(--krishna-blue);
+    font-weight: 300;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-md);
+}
+
+.nav-link {
+    color: #2c1810;
+    text-decoration: none;
+    font-weight: 400;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-sm);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(45deg, var(--primary-gold), var(--accent-saffron));
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::before {
+    width: 100%;
+}
+
+.nav-link:hover {
+    color: var(--accent-saffron);
+    transform: translateY(-2px);
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.nav-toggle span {
+    width: 25px;
+    height: 3px;
+    background: #2c1810;
+    margin: 3px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 248, 240, 0.98);
+        backdrop-filter: blur(10px);
+        padding: 20px;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+        box-shadow: var(--shadow-divine);
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    .nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+}
+
+/* ===== HERO SECTION ===== */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xl) var(--spacing-md);
+    position: relative;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="radha-krishna" patternUnits="userSpaceOnUse" width="100" height="100"><circle cx="50" cy="50" r="2" fill="%23ffd700" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23radha-krishna)"/></svg>');
+}
+
+.hero-container {
+    max-width: 1200px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+}
+
+.hero-content {
+    z-index: 2;
+}
+
+.hero-title {
+    font-family: var(--font-primary);
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+    color: #2c1810;
+}
+
+.title-line {
+    display: block;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.title-line:nth-child(1) { animation-delay: 0.2s; }
+.title-line:nth-child(2) { animation-delay: 0.4s; }
+.title-line:nth-child(3) { animation-delay: 0.6s; }
+.title-line:nth-child(4) { animation-delay: 0.8s; }
+
+.highlight {
+    background: linear-gradient(45deg, var(--primary-gold), var(--accent-saffron));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 900;
+}
+
+.divine-text {
+    color: var(--krishna-blue);
+    font-weight: 700;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: #4a4a4a;
+    margin-bottom: var(--spacing-lg);
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards 1s;
+}
+
+.hero-cta {
+    display: flex;
+    gap: var(--spacing-md);
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards 1.2s;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: var(--radius-md);
+    font-family: var(--font-secondary);
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, var(--primary-gold), var(--accent-saffron));
+    color: #2c1810;
+    box-shadow: var(--shadow-glow);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-sacred);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #2c1810;
+    border: 2px solid var(--primary-gold);
+}
+
+.btn-secondary:hover {
+    background: var(--primary-gold);
+    color: #2c1810;
+    transform: translateY(-3px);
+}
+
+.btn-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.btn:hover .btn-icon {
+    transform: scale(1.2);
+}
+
+/* ===== HERO VISUAL ===== */
+.hero-visual {
+    position: relative;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.krishna-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="%23ffd700" opacity="0.1"/></svg>') center/contain no-repeat;
+}
+
+.krishna-flute {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle at 30% 30%, var(--primary-gold), var(--divine-light));
+    border-radius: 50%;
+    box-shadow: var(--shadow-glow);
+    animation: krishna-flute-play 4s ease-in-out infinite;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="%23ffd700" opacity="0.3"/><text x="50" y="55" text-anchor="middle" font-size="40" fill="%23ff6b35">🕉️</text></svg>');
+}
+
+.lotus-flower {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    top: 20%;
+    right: 20%;
+    background: radial-gradient(circle at 30% 30%, var(--lotus-pink), var(--divine-light));
+    border-radius: 50%;
+    animation: radha-dance 5s ease-in-out infinite;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="35" fill="%23ff69b4" opacity="0.3"/><text x="50" y="55" text-anchor="middle" font-size="30" fill="%23ff69b4">🌸</text></svg>');
+}
+
+.peacock-feather {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    bottom: 10%;
+    left: 10%;
+    background: radial-gradient(circle at 30% 30%, var(--peacock-green), var(--divine-light));
+    border-radius: 50%;
+    animation: peacock-dance 4s ease-in-out infinite;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="25" fill="%23228b22" opacity="0.3"/><text x="50" y="55" text-anchor="middle" font-size="25" fill="%23228b22">🦚</text></svg>');
+}
+
+/* ===== SECTIONS ===== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.section-title {
+    font-family: var(--font-primary);
+    font-size: clamp(2rem, 4vw, 3rem);
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    background: linear-gradient(45deg, var(--primary-gold), var(--accent-saffron));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: #2c1810;
+}
+
+/* ===== ABOUT SECTION ===== */
+.about-section {
+    padding: var(--spacing-md);
+    background: rgba(255, 248, 240, 0.5);
+    position: relative;
+}
+
+.about-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="radha-krishna-pattern" patternUnits="userSpaceOnUse" width="50" height="50"><circle cx="25" cy="25" r="1" fill="%23ffd700" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23radha-krishna-pattern)"/></svg>');
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.about-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.about-card:hover::before {
+    left: 100%;
+}
+
+.about-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-divine);
+    border-color: var(--accent-saffron);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+    display: block;
+    animation: icon-float 3s ease-in-out infinite;
+}
+
+.about-card h3 {
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--krishna-blue);
+}
+
+/* ===== GALLERY SECTION ===== */
+.gallery-section {
+    padding: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.3);
+    position: relative;
+}
+
+.gallery-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="lotus-pattern" patternUnits="userSpaceOnUse" width="40" height="40"><circle cx="20" cy="20" r="1" fill="%23ff69b4" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23lotus-pattern)"/></svg>');
+    opacity: 0.2;
+    z-index: -1;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.gallery-item {
+    position: relative;
+    height: 250px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--divine-light), #fff5e6);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 215, 0, 0.2);
+}
+
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--primary-gold), var(--accent-saffron));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover::before {
+    opacity: 0.2;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-divine);
+    border-color: var(--accent-saffron);
+}
+
+.item-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: var(--spacing-lg);
+    background: linear-gradient(transparent, rgba(255, 255, 255, 0.9));
+    color: #2c1810;
+}
+
+.item-content h3 {
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--krishna-blue);
+}
+
+/* ===== CONTACT SECTION ===== */
+.contact-section {
+    padding: var(--spacing-md);
+    background: rgba(255, 248, 240, 0.5);
+    position: relative;
+}
+
+.contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="blessing-pattern" patternUnits="userSpaceOnUse" width="60" height="60"><circle cx="30" cy="30" r="1" fill="%234169e1" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23blessing-pattern)"/></svg>');
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+}
+
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 600;
+    color: var(--krishna-blue);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.8);
+    color: #2c1810;
+    font-family: var(--font-secondary);
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-saffron);
+    box-shadow: var(--shadow-sacred);
+    background: rgba(255, 255, 255, 1);
+}
+
+/* ===== FOOTER ===== */
+.main-footer {
+    background: rgba(255, 248, 240, 0.9);
+    padding: var(--spacing-lg) 0;
+    text-align: center;
+    border-top: 1px solid rgba(255, 215, 0, 0.3);
+    color: #2c1810;
+}
+
+/* ===== MODAL ===== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: var(--divine-white);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    box-shadow: var(--shadow-divine);
+    color: #2c1810;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #2c1810;
+    transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+    color: var(--accent-saffron);
+}
+
+/* ===== LOADING SCREEN ===== */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--divine-lighter);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3000;
+    transition: opacity 0.5s ease;
+}
+
+.loading-screen.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loading-content {
+    text-align: center;
+    color: #2c1810;
+}
+
+.loading-spinner {
+    width: 60px;
+    height: 60px;
+    border: 3px solid rgba(255, 215, 0, 0.3);
+    border-top: 3px solid var(--accent-saffron);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto var(--spacing-md);
+}
+
+/* ===== WISHES SECTION ===== */
+.wishes-section {
+    padding: var(--spacing-md);
+    background: rgba(255, 248, 240, 0.5);
+    position: relative;
+}
+
+.wishes-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="wish-pattern" patternUnits="userSpaceOnUse" width="50" height="50"><circle cx="25" cy="25" r="1" fill="%23ffd700" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23wish-pattern)"/></svg>');
+    opacity: 0.2;
+    z-index: -1;
+}
+
+.wishes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-lg);
+    position: relative;
+    /* padding: var(--spacing-lg) 0; */
+}
+
+.wish-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 248, 240, 0.95));
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.15);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.wish-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Ensure cards are visible if JavaScript fails */
+.no-js .wish-card {
+    opacity: 1;
+    transform: none;
+}
+
+.wish-content {
+    display: flex;
+    flex-direction: column;
+    /* gap: var(--spacing-md); */
+}
+
+.wish-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+.wish-sender {
+    font-family: var(--font-primary);
+    font-size: 1.25rem;
+    color: var(--krishna-blue);
+    font-weight: 600;
+}
+
+.wish-icon {
+    font-size: 1.75rem;
+    animation: divine-float 6s ease-in-out infinite;
+}
+
+.wish-message {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #2c1810;
+    margin-bottom: var(--spacing-md);
+}
+
+.wish-media-gallery {
+    margin-top: var(--spacing-md);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    position: relative;
+}
+
+.media-thumbnail {
+    position: relative;
+    width: 100%;
+    padding-top: 66.67%;
+    overflow: hidden;
+    background: rgba(255, 248, 240, 0.5);
+}
+
+.media-thumbnail img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.media-thumbnail:hover img {
+    transform: scale(1.05);
+}
+
+.video-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: var(--accent-saffron);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.media-thumbnail:hover .video-indicator {
+    transform: translate(-50%, -50%) scale(1.1);
+    background: var(--primary-gold);
+    color: white;
+}
+
+/* ===== MEDIA VIEWER ===== */
+.media-viewer {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 2000;
+}
+
+.media-viewer.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.media-viewer-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90vh;
+}
+
+.media-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.media-content img,
+.media-content video {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+}
+
+.media-viewer-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 2001;
+}
+
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    padding: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-nav:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.carousel-prev {
+    left: 20px;
+}
+
+.carousel-next {
+    right: 20px;
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-dot.active {
+    background: white;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes sacred-twinkle {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+}
+
+@keyframes lotus-drift {
+    0%, 100% { transform: translateX(0) translateY(0); }
+    50% { transform: translateX(-20px) translateY(-10px); }
+}
+
+@keyframes divine-light-trail {
+    0% {
+        transform: translateX(-100px) translateY(0) rotate(45deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(calc(100vw + 100px)) translateY(calc(100vh + 100px)) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+@keyframes om-float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes krishna-flute-play {
+    0%, 100% {
+        transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    }
+    25% {
+        transform: translate(-50%, -50%) rotate(5deg) scale(1.05);
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(0deg) scale(1.1);
+    }
+    75% {
+        transform: translate(-50%, -50%) rotate(-5deg) scale(1.05);
+    }
+}
+
+@keyframes radha-dance {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-8px) rotate(3deg);
+    }
+    50% {
+        transform: translateY(-15px) rotate(0deg);
+    }
+    75% {
+        transform: translateY(-8px) rotate(-3deg);
+    }
+}
+
+@keyframes peacock-dance {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-15px) rotate(5deg);
+    }
+    50% {
+        transform: translateY(-25px) rotate(0deg);
+    }
+    75% {
+        transform: translateY(-15px) rotate(-5deg);
+    }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes icon-float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 248, 240, 0.98);
+        backdrop-filter: blur(10px);
+        padding: 20px;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+        box-shadow: var(--shadow-divine);
+    }
+    
+    .nav-menu.active {
+        display: flex;
+    }
+    
+    .nav-toggle {
+        display: flex;
+    }
+    
+    .nav-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+    
+    .nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .nav-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+    
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .hero-cta {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .krishna-container {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .krishna-flute {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .lotus-flower {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .peacock-feather {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .hero-image-box {
+        max-width: 400px;
+        height: 400px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-cta {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+}
+
+/* ===== HERO IMAGE BOX ===== */
+.hero-image-box {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    height: 500px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-divine);
+    transition: all 0.3s ease;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.hero-image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 107, 53, 0.2)); */
+    pointer-events: none;
+}
+
+.hero-image-box:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-sacred);
+}
+
+.hero-image-box:hover .hero-image {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .hero-image-box {
+        max-width: 400px;
+        height: 400px;
+        margin: 0 auto;
+    }
+}
