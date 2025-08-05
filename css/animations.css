@@ -279,33 +279,33 @@
 @keyframes scroll-fade-in {
     from {
         opacity: 0;
-        transform: translateY(50px);
+        /* transform: translateY(50px); */
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+       /* transform: translateY(0); */
     }
 }
 
 @keyframes scroll-slide-in-left {
     from {
         opacity: 0;
-        transform: translateX(-100px);
+       /* transform: translateX(-100px); */
     }
     to {
         opacity: 1;
-        transform: translateX(0);
+       /* transform: translateX(0); */
     }
 }
 
 @keyframes scroll-slide-in-right {
     from {
         opacity: 0;
-        transform: translateX(100px);
+       /* transform: translateX(100px); */
     }
     to {
         opacity: 1;
-        transform: translateX(0);
+       /* transform: translateX(0); */
     }
 }
 
